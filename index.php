@@ -30,4 +30,4 @@ foreach ($words_count as $word => $word_count) {
     echo "[{$word}]:=> {$entry_count}" . PHP_EOL;
 }
 
-echo "Всего слов: {$count}";
+echo "[Всего слов]: {$count}";
