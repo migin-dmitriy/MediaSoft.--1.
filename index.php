@@ -1,33 +1,38 @@
 <?php
+    $name = "Мигин Дмитрий";
+    $a = array (
+        'Я,'=> 1,
+        'Мигин'=> 2,
+        'Дмитрий'=> 3,
+        'Игоревич,'=> 4,
+        'прохожу'=> 5,
+        'практику'=> 6,
+        'в'=> 7,
+        'MediaSoft!'=> 8,
+        'Красный.'=> 9,
+        'Гриб:)'=> 10
+    );
+?>
 
-$str = 'Для вас, души моей царицы,
-    Красавицы, для вас одних
-    Времен минувших небылицы,
-    В часы досугов золотых,
-    Под шепот старины болтливой,
-    Рукою верной я писал;
-    Примите ж вы мой труд игривый!
-    Ничьих не требуя похвал,
-    Счастлив уж я надеждой сладкой,
-    На песни грешные мои.';
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="text">
+        <p><?=$name?></p>
+    </div>
+
+    <?php foreach ( $a as $b => $v) { ?>
+        <div><?php echo "[$b] =>$v.\n"; ?></div>
+    <?php }?>
+
+</body>
+</html>
 
 
-$words = str_word_count($str, 1, 'АаБбВвГгДдЕеЁёЖжЗзИиЙйКкЛлМмНнОоПпРрСсТтУуФфХхЦцЧчШшЩщЪъЫыЬьЭэЮюЯя');
-$words = array_unique($words);
-
-$count = count($words);
-
-$words_count = [];
-
-foreach ($words as $word) {
-
-    preg_match_all('~\b' . $word . '\b~iu', $str, $words_count[$word]);
-}
-
-
-foreach ($words_count as $word => $word_count) {
-    $entry_count = count($word_count[0]);
-    echo "[{$word}]:=> {$entry_count}" . PHP_EOL;
-}
-
-echo "[Всего слов]: {$count}";
